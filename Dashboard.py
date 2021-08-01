@@ -41,7 +41,7 @@ def print_article_info(article):
     print_table(f"""SELECT article.DOI AS 'DOI', article.link AS 'Access Link' FROM article
         WHERE article.article_id= {article}""", 'psql')
 
-# Same as above function, but saves to file instead of prints
+# Same as above function, but uses save_table instead of print_table
 def save_article_info(article):
     filename = input("File name: ")
     save_table(f"SELECT article_name AS 'Article Title/s' FROM article WHERE article_id= {article}", 'psql', filename)
