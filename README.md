@@ -4,7 +4,7 @@ Here is the *database schema* for your reference.
 
 ![Database Schema](https://i.imgur.com/OESeSOH.png)
 
-It's not perfect; one glaring flaw is the keywords are stored in one long string. One could add another table for keywords plus another junction table in between it and the **article** table. The reason why we didn't do that is it would be a lot of work and that junction table would be a very *very* long table. Maybe you can find another solution.
+It's not perfect; one glaring flaw is the keywords are stored in one long string, so it's not very useful. One could add another table for keywords plus another junction table in between it and the **article** table. The reason why we didn't do that is it would be a lot of work and that junction table would be a very *very* long table. Maybe you can find another solution.
 
 Speaking of junction tables, **author** and **institution** tables share a junction table between then and **article**. I'm not sure if this is SQL best practice, I don't think it is. It is only this way, because, again, it made the [Google Sheet](https://docs.google.com/spreadsheets/d/1ijC5O5VKvlAwS6U5ZvrhfGXDtT_HvGbSPXe7HpQ7VPM/) much easier to fill in.
 
