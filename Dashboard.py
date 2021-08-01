@@ -1,13 +1,16 @@
+# Using the packages "mysql-connector-python" and "tabulate"
 import mysql.connector
 from tabulate import tabulate
 
+# Prints table using tabulate
 def print_table(query,style):
     mycursor = mydb.cursor()
     mycursor.execute(query)
     myresult = mycursor.fetchall()
     field_names = [i[0] for i in mycursor.description]
     print(tabulate(myresult,headers = field_names, tablefmt=style))
-    
+
+# Same as above function, but writes to file instead of printing
 def save_table(query,style,filename):
     f = open(filename + ".txt", "a")
     mycursor = mydb.cursor()
@@ -18,20 +21,27 @@ def save_table(query,style,filename):
     f.write("\n")
     f.close()
 
+## Prints all relevant info about a selected article
 def print_article_info(article):
+    # Title
     print_table(f"SELECT article_name AS 'Article Title/s' FROM article WHERE article_id= {article}", 'psql')
+    # Abstract
     print_table(f"SELECT abstract FROM article WHERE article_id = {article}", 'plain')
+    # Author name and institution
     print_table(f"""SELECT CONCAT(author.first_name, ' ', author.last_name) AS 'Author', inst_name AS 'Institution' FROM article 
         JOIN relationship ON relationship.article_id = article.article_id
         JOIN author ON author.author_id = relationship.author_id
         JOIN institution ON institution.inst_id = relationship.inst_id
         WHERE article.article_id = {article}""", 'psql')
+    # Journal, ISSN, year of publishing, page numbers
     print_table(f"""SELECT journal.journal_name AS 'Journal', journal.ISSN AS 'ISSN', article.year AS 'Year', article.page_number AS 'Page no/s' FROM article 
         JOIN journal ON article.journal_id = journal.journal_id
         WHERE article.article_id= {article}""", 'psql')
+    # DOI, access link
     print_table(f"""SELECT article.DOI AS 'DOI', article.link AS 'Access Link' FROM article
         WHERE article.article_id= {article}""", 'psql')
-    
+
+# Same as above function, but saves to file instead of prints
 def save_article_info(article):
     filename = input("File name: ")
     save_table(f"SELECT article_name AS 'Article Title/s' FROM article WHERE article_id= {article}", 'psql', filename)
@@ -47,6 +57,7 @@ def save_article_info(article):
     save_table(f"""SELECT article.DOI AS 'DOI', article.link AS 'Access Link' FROM article
         WHERE article.article_id= {article}""", 'psql', filename)
 
+# This loop prompts users to view an article by typing the article ID, then asks if they want to save it and/or view another article
 def view_article_loop():
     N = -1
     first = -1
@@ -67,6 +78,8 @@ def view_article_loop():
                 save_article_info(articleno)
             else:
                 N = N+1
+
+## REPLACE WITH YOUR MYSQL INFORMATION HERE
 pw = input('MySQL Password: ')
 mydb = mysql.connector.connect(
   host="localhost",
@@ -153,6 +166,7 @@ while resume == 'yes':
                 year AS 'Year',
                 methodology AS 'Methodology' FROM article ORDER BY year""", 'psql')
             view_article_loop()
+
     print('Would you like to\n(1) Start again from the beginning, or\n(2) Exit the Database')
     exitprogram = int(input('Enter option number: '))
     if exitprogram == 1:
