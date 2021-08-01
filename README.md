@@ -55,8 +55,13 @@ highlights the importance of social relations especially in the Philippine conte
 |       | https://core.ac.uk/download/pdf/335032312.pdf |
 +-------+-----------------------------------------------+
 </pre></details>
-5. Create and write the same article details to a text file in the same directory, so that it can be accessed even after the program is closed.
+
+4. Create and write the same article details to a text file in the same directory, so that it can be accessed even after the program is closed.
 
 This dashboard, at least in its current form, is more of a proof of concept showing off and testing the capabilities of our database structure; it is very far from being a functional tool. It is extremely basic, and does not correct for error from incorrect user input, have the ability to do complex queries (e.g. select all the articles by Fr. Bulatao in the Philippine Journal of Psychology in 1969), and it is **NOT SECURE**. Someone who knows what they're doing can ruin the database accessing it through the dashboard. [I think you can fix it if you figure out how to use this](https://www.btelligent.com/en/blog/best-practice-for-sql-statements-in-python/) and replce my f strings. You're smarter and less tired than me. In fact, I probably made more mistakes in my coding that I don't even know about, and I won't be offended if you start over from scratch.
 
-Of course, it's also not useful because it can only run with a local MySQL server. For this to be really useful, it has to (1) work over the internet, and (2) have a GUI, probably through a website.
+Of course, it's also not useful because it can only run with a local MySQL server. For this to be really useful, it has to (1) work over the internet, and (2) have a GUI, probably through a website. Send me the link when you manage to do that, I'd love to see it!
+
+For any questions about this stuff, shoot an email to miguel.singian@obf.ateneo.edu.
+
+Good luck, peace.
