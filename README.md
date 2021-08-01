@@ -10,11 +10,13 @@ As you probably already know, the database itself was populated via [Google Shee
 
 ## Querying the Database
 
-For your own analyses, here are some MySQL queries that we used often.
+For your own analyses, [here are some MySQL queries that we used often](https://github.com/m1guel929/RiPSIG-DRIPP/edit/main/RipSig%20Queries.sql).
 
 ## Database Dashboard
 
-![Dashboard.py](https://github.com/m1guel929/RiPSIG-DRIPP/blob/main/Dashboard.py) is a simple command line based dashboard in Python that (when ran on the host computer) queries the database automatically, based on a user's input. As of now it can:
+[Dashboard.py](https://github.com/m1guel929/RiPSIG-DRIPP/blob/main/Dashboard.py) is a simple command line based dashboard in Python that (when ran on the host computer) queries the database automatically, based on a user's input. You'll need Python 3 with the packages *mysql-connector-python* and *tabulate*, and a local MySQL server with the whole database on it. Before running the program, open it in your favorite IDE and edit lines 85-88 to your MySQL username and name of the database.
+
+As of now it can:
 1. Show the user the full list of authors, journals, institutions, or articles,
 2. Print a list of articles based on a chosen author, journal, institution, or range of years. 
 > For example, I can view all the articles in *Philippine Journal of Psychology*, or all the articles between 1965 and 1975.
@@ -58,7 +60,7 @@ highlights the importance of social relations especially in the Philippine conte
 
 4. Create and write the same article details to a text file in the same directory, so that it can be accessed even after the program is closed.
 
-This dashboard, at least in its current form, is more of a proof of concept showing off and testing the capabilities of our database structure; it is very far from being a functional tool. It is extremely basic, and does not correct for error from incorrect user input, have the ability to do complex queries (e.g. select all the articles by Fr. Bulatao in the Philippine Journal of Psychology in 1969), and it is **NOT SECURE**. Someone who knows what they're doing can ruin the database accessing it through the dashboard. [I think you can fix it if you figure out how to use this](https://www.btelligent.com/en/blog/best-practice-for-sql-statements-in-python/) and replce my f strings. You're smarter and less tired than me. In fact, I probably made more mistakes in my coding that I don't even know about, and I won't be offended if you start over from scratch.
+This dashboard, at least in its current form, is more of a proof of concept showing off and testing the capabilities of our database structure; it is very far from being a functional tool. It is extremely basic, and does not correct for error from incorrect user input, have the ability to do complex queries (e.g. select all the articles by Fr. Bulatao in the Philippine Journal of Psychology in 1969), and it is **NOT SECURE**. Someone who knows what they're doing can ruin the database accessing it through the dashboard. [I think you can fix it if you figure out how to use this](https://www.btelligent.com/en/blog/best-practice-for-sql-statements-in-python/) and replce my f strings. You're smarter and less tired than me. In fact, I probably made more mistakes in my coding that I don't even know about, and I won't be offended if you start over from scratch. It doesn't have to be Python, and it doesn't have to be MySQL.
 
 Of course, it's also not useful because it can only run with a local MySQL server. For this to be really useful, it has to (1) work over the internet, and (2) have a GUI, probably through a website. Send me the link when you manage to do that, I'd love to see it!
 
