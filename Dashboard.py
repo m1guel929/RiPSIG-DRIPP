@@ -21,7 +21,7 @@ def save_table(query,style,filename):
     f.write("\n")
     f.close()
 
-## Prints all relevant info about a selected article
+# Prints all relevant info about a selected article
 def print_article_info(article):
     # Title
     print_table(f"SELECT article_name AS 'Article Title/s' FROM article WHERE article_id= {article}", 'psql')
