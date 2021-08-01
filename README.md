@@ -4,13 +4,17 @@ Here is the *database schema* for your reference.
 
 ![Database Schema](https://i.imgur.com/OESeSOH.png)
 
+It's not perfect; one glaring flaw is the keywords are stored in one long string. One could add another table for keywords plus another junction table in between it and the **article** table. The reason why we didn't do that is it would be a lot of work and that junction table would be a very *very* long table.
+
+Speaking of junction tables, **author** and **institution** tables share a junction table between then and **article**. I'm not sure if this is SQL best practice, I don't think it is. It is only this way, because, again, it made the [Google Sheet](https://docs.google.com/spreadsheets/d/1ijC5O5VKvlAwS6U5ZvrhfGXDtT_HvGbSPXe7HpQ7VPM/) much easier to fill in.
+
 ## Updating the Database
 
-As you probably already know, the database itself was populated via [Google Sheets](https://docs.google.com/spreadsheets/d/1ijC5O5VKvlAwS6U5ZvrhfGXDtT_HvGbSPXe7HpQ7VPM/), for ease of access and collaboration more than anything. To update the database, which was hosted on MySQL server on my personal computer, we used [this website](https://www.convertcsv.com/csv-to-sql.htm) to convert the data from the Sheets (downloaded as CSVs) into SQL CREATEs and INSERTs. The step of doing everything in sheets then manually moving them over to SQL is probably a waste of time; so if you can figure out an easier way to do it, that would be great.
+As you already know, the database itself was populated via [Google Sheets](https://docs.google.com/spreadsheets/d/1ijC5O5VKvlAwS6U5ZvrhfGXDtT_HvGbSPXe7HpQ7VPM/), for ease of access and collaboration more than anything. To update the database, which was hosted on MySQL server on my personal computer, we used [this website](https://www.convertcsv.com/csv-to-sql.htm) to convert the data from the Sheets (downloaded as CSVs) into SQL CREATEs and INSERTs. The step of doing everything in sheets then manually moving them over to SQL is probably a waste of time; so if you can figure out an easier way to do it, that would be great.
 
 ## Querying the Database
 
-For your own analyses, [here are some MySQL queries that we used often](https://github.com/m1guel929/RiPSIG-DRIPP/edit/main/RipSig%20Queries.sql).
+For your own analyses, [here are some MySQL queries that we used often](https://github.com/m1guel929/RiPSIG-DRIPP/edit/main/RipSig%20Queries.sql). Otherwise, refer to the [database schema](https://github.com/m1guel929/RiPSIG-DRIPP#ripsig-dripp) and the [Google Sheet](https://docs.google.com/spreadsheets/d/1ijC5O5VKvlAwS6U5ZvrhfGXDtT_HvGbSPXe7HpQ7VPM/) to write your own queries.
 
 ## Database Dashboard
 
@@ -62,7 +66,7 @@ highlights the importance of social relations especially in the Philippine conte
 
 This dashboard, at least in its current form, is more of a proof of concept showing off and testing the capabilities of our database structure; it is very far from being a functional tool. It is extremely basic, and does not correct for error from incorrect user input, have the ability to do complex queries (e.g. select all the articles by Fr. Bulatao in the Philippine Journal of Psychology in 1969), and it is **NOT SECURE**. Someone who knows what they're doing can ruin the database accessing it through the dashboard. [I think you can fix it if you figure out how to use this](https://www.btelligent.com/en/blog/best-practice-for-sql-statements-in-python/) and replce my f strings. You're smarter and less tired than me. In fact, I probably made more mistakes in my coding that I don't even know about, and I won't be offended if you start over from scratch. It doesn't have to be Python, and it doesn't have to be MySQL.
 
-Of course, it's also not useful because it can only run with a local MySQL server. For this to be really useful, it has to (1) work over the internet, and (2) have a GUI, probably through a website. Send me the link when you manage to do that, I'd love to see it!
+Of course, it's also not useful because it can only run with a local MySQL server. For this to be really useful, it has to (1) work over the internet, and (2) have a GUI, probably through a website, and (3) an actual search bar. Send me the link when you manage to do that, I'd love to see it!
 
 For any questions about this stuff, shoot an email to miguel.singian@obf.ateneo.edu.
 
