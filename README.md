@@ -10,7 +10,7 @@ Speaking of junction tables, **author** and **institution** tables share a junct
 
 ## Updating the Database
 
-As you already know, the database itself was populated via [Google Sheets](https://docs.google.com/spreadsheets/d/1ijC5O5VKvlAwS6U5ZvrhfGXDtT_HvGbSPXe7HpQ7VPM/), for ease of access and collaboration more than anything. To update the database, which was hosted on MySQL server on my personal computer, we used [this website](https://www.convertcsv.com/csv-to-sql.htm) to convert the data from the Sheets (downloaded as CSVs) into SQL CREATEs and INSERTs. If you use that website, make sure to clean up your CSVs of any extra columns, and everything that should be integers (primary keys, year, etc) are all integers.
+As you already know, the database itself was populated via [Google Sheets](https://docs.google.com/spreadsheets/d/1ijC5O5VKvlAwS6U5ZvrhfGXDtT_HvGbSPXe7HpQ7VPM/), for ease of access and collaboration more than anything. To update the database, which was hosted on MySQL server on my personal computer, we used [ConvertCSV.com](https://www.convertcsv.com/csv-to-sql.htm) to convert the data from the Sheets (downloaded as CSVs) into SQL CREATEs and INSERTs. If you use that website, make sure to clean up your CSVs of any extra columns, and everything that should be integers (primary keys, year, etc) are all integers.
 
 This step of manually moving them over to SQL from sheets is probably a waste of time; if you can figure out an easier way to do it, that would be great.
 
