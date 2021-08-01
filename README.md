@@ -70,6 +70,6 @@ This dashboard, at least in its current form, is more of a proof of concept show
 
 Of course, it's also not useful because it can only run with a local MySQL server. For this to be really useful, it has to (1) work over the internet, and (2) have a GUI, probably through a website, and (3) an actual search bar. Send me the link when you manage to do that, I'd love to see it!
 
-For any questions about this stuff, shoot an email to miguel.singian@obf.ateneo.edu.
+For any questions about this stuff, shoot me an email at miguel.singian@obf.ateneo.edu.
 
 Good luck, peace.
