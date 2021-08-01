@@ -109,10 +109,12 @@ while resume == 'yes':
         
         # VIEW BY AUTHOR
         if option == 1:
+            # prints list of authors
             print_table("""SELECT author_id AS 'Author Number', CONCAT(first_name,' ', last_name)
                 AS 'Name' FROM author ORDER BY last_name""", 'psql')
             print('Above is the list of authors;\ninput the author number to see the articles by that author.')
             author = input("Enter author number: ")
+            # prints list of articles from selected author
             print_table(f"""SELECT article.article_id AS 'no.', SUBSTRING(article_name, 1,100) AS 'Title',
                 journal.journal_name AS 'Journal',
                 year AS 'Year',
@@ -125,9 +127,11 @@ while resume == 'yes':
 
         # VIEW BY INSTITUTION
         elif option == 2:
+            # prints list of institutions
             print_table("SELECT inst_id AS 'Inst. No.', inst_name AS 'Institution' FROM institution ORDER BY inst_name", 'psql')
             print('Above is the list of institutions;\ninput the institution number to see the articles by that institution.')
             inst = input("Enter institution number: ")
+            # prints list of articles from selected institution
             print_table(f"""SELECT article.article_id AS 'no.', SUBSTRING(article_name, 1,100) AS 'Title',
                 journal.journal_name AS 'Journal',
                 year AS 'Year',
@@ -140,9 +144,11 @@ while resume == 'yes':
         
         # VIEW BY JOURNAL
         elif option == 3:
+            # prints list of journals
             print_table("SELECT journal_id AS 'no.', journal_name AS 'Name', ISSN AS 'ISSN' FROM journal ORDER BY journal_name", 'psql')
             print('Above is the list of journals;\ninput the journal number to see the articles in that journal.')
             journal = input("Enter journal number: ")
+            # prints list of articles from selected journal
             print_table(f"SELECT journal_id AS 'no.', journal_name AS 'Journal Name', ISSN AS 'ISSN' FROM journal WHERE journal_id = {journal}", 'psql')
             print_table(f"""SELECT article.article_id AS 'no.', SUBSTRING(article_name, 1,100) AS 'Title',
                 year AS 'Year',
@@ -155,6 +161,7 @@ while resume == 'yes':
         elif option == 4:
             start = input('Enter first year of search: ')
             end = input('Enter last year of search: ')
+            # prints list of articles between start and end years
             print_table(f"""SELECT article.article_id AS 'no.', SUBSTRING(article_name, 1,100) AS 'Title',
                 year AS 'Year',
                 methodology AS 'Methodology' FROM article WHERE year BETWEEN {start} AND {end} ORDER BY year""", 'psql')
@@ -162,6 +169,7 @@ while resume == 'yes':
             
         # VIEW ALL
         elif option == 5:
+            # prints all articles
             print_table("""SELECT article.article_id AS 'no.', SUBSTRING(article_name, 1,100) AS 'Title',
                 year AS 'Year',
                 methodology AS 'Methodology' FROM article ORDER BY year""", 'psql')
@@ -174,6 +182,6 @@ while resume == 'yes':
     elif exitprogram == 2:
         resume = 'no'
     
-    # AUTHORS
+    # AUTHORS (no time na to add this option and other options)
     elif option == 2:
         query = "SELECT * FROM author"
