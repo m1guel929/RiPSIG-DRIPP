@@ -14,7 +14,7 @@ For your own analyses, here are some MySQL queries that we used often.
 
 ## Database Dashboard
 
-Dashboard.py is a simple command line based dashboard in Python that (when ran on the host computer) queries the database automatically, based on a user's input. As of now it can:
+![Dashboard.py](https://github.com/m1guel929/RiPSIG-DRIPP/blob/main/Dashboard.py) is a simple command line based dashboard in Python that (when ran on the host computer) queries the database automatically, based on a user's input. As of now it can:
 1. Show the user the full list of authors, journals, institutions, or articles,
 2. Print a list of articles based on a chosen author, journal, institution, or range of years. 
 > For example, I can view all the articles in *Philippine Journal of Psychology*, or all the articles between 1965 and 1975.
